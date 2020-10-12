@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-12 col-sm-6 col-md-8">
+          <img src="{{ journey.author.profile.image.url }}" class="rounded-circle article-img">
+          <div class="card" style="width: 18rem;">
+            {{object.date_posted|date:"F d, Y"}} by {{object.author}}
+            <img class="card-img-top" src="{{ journey.image.url }}" alt="Card image cap">
+            <div class="card-body">
+              {% if object.author == user %}
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'journey-update' object.id %}">Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'journey-delete' object.id %}">Delete</a>
+              {% endif %}
+              <h2>{{object.title}}</h2>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      
+      
+    
+    </div>
+    
+{% endblock content %}

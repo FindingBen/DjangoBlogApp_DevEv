@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-12 col-sm-6 col-md-8">
+          
+         <h1>Your dashboard</h1>
+         {% for journey in journeys %}
+          <img src="{{ journey.author.profile.image.url }}" class="rounded-circle article-img">
+          <div class="card" style="width: 18rem;">
+            {{journey.date_posted|date:"F d, Y"}} by {{journey.author}}
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h2>{{journey.title}}</h2>
+              
+            </div>
+          </div>
+          <br>
+          {% endfor %}
+        </div>
+      </div>
+      
+      
+    
+    </div>
+    
+{% endblock content %}
